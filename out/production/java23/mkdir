@@ -1,0 +1,8 @@
+
+
+gitkeep@example:~$ mkdir empty-directory
+gitkeep@example:~$ cd empty-directory
+gitkeep@example:~$ touch .gitkeep
+gitkeep@example:~$ git add .
+gitkeep@example:~$ git commit -m "Commit empty folder in Git with gitkeep"
+gitkeep@example:~$ git push origin

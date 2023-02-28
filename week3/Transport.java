@@ -1,7 +1,5 @@
 package week3;
 
-import java.util.Scanner;
-
 /**
  * Created by abbyr on 22/02/2023
  * program to read in the weights of containers until -1 is entered and calculate the cost of haulage depending on the reading
@@ -18,9 +16,9 @@ public class Transport
       return weight;
    }
 
-   public static int calculateCost(int number, int weight)
+   public static double calculateCost(int number, int weight)
    {
-      int cost;
+      double cost;
       final int HIGHWEIGHT = 1000;
       final int HIGHCOST = 1200;
       final int LOWWEIGHT = 500;
