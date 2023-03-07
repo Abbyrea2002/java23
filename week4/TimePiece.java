@@ -109,7 +109,7 @@ public class TimePiece
       System.out.println("========================");
       System.out.println("Cost price: £" + costPrice);
       System.out.println("Type of read out: " + readOut);
-      System.out.println("Current time: " + showTime());
+      System.out.println("Current time: " + showTime(hours, minutes));
       System.out.println();
       System.out.println("========================");
    }//display details
