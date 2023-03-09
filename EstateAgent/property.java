@@ -5,7 +5,7 @@ import java.util.Date;
 
 /**
  * Created by abby rea  on 07/03/2023
- *
+ * a program containing a class which houses eight which will aid an estate agent in  displaying details on multiple properties to a user
  */
 public class property
 {
