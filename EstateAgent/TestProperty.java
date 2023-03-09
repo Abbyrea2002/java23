@@ -8,7 +8,7 @@ public class TestProperty
    {
 
 
-      property oneProperty = new property("Recreation Road", "Larne", "Bt40 1ew", "semi detached", "richard green", "07565899835", 1);
+      property oneProperty = new property("Recreation Road ", "Larne ", "Bt40 1ew ", "semi detached", "richard green", "07565899835", 1);
       oneProperty.displayProperty();
 
    }//main

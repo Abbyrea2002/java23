@@ -17,7 +17,7 @@ public class property
    private String nameOfVendor;
    private String vendorContactNumber;
    private int price;
-   private String dateRegistered;
+   private Date dateRegistered;
 
 
 
@@ -31,7 +31,7 @@ public class property
      nameOfVendor = pNameOfVendor;
      vendorContactNumber = pVendorContactNumber;
      price = pPrice;
-     dateRegistered = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+     dateRegistered = new Date();
    }//constructor
 
    protected void setStreet(String pStreet)
@@ -91,25 +91,27 @@ public class property
    {
       return price;
    }//get price
-   protected String getDateRegistered()
+   protected Date getDateRegistered()
    {
       return dateRegistered;
    }//get dateRegistered
 
    protected String getFullAddress()
    {
-      return getStreet()+ getTown()+ getPostcode();
+      return getStreet() + getTown() + getPostcode();
 
    }
 
    protected void displayProperty()
    {
+    String dateReg = new SimpleDateFormat("dd-MM-yyyy").format(dateRegistered);
+
     System.out.println("Property details");
     System.out.println("================");
     System.out.println("This property is in " + getFullAddress());
     System.out.println("The property is a " + propertyType);
     System.out.println("The cost of this property is " + price);
-    System.out.println("The property was registered " + dateRegistered);
+    System.out.println("The property was registered " + dateReg);
     System.out.println("Vendors details");
     System.out.println("===============");
     System.out.println("The vendor of this property is " + nameOfVendor);
