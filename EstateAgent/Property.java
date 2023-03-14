@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by abby rea  on 07/03/2023
  * a program containing a class which houses eight which will aid an estate agent in  displaying details on multiple properties to a user
  */
-public class property
+public class Property
 {
    //defining attributes
    private String street;
@@ -22,7 +22,7 @@ public class property
 
 
    //define constructor and initialing the first seven attributes
-   public property(String pStreet, String pTown, String pPostcode, String pPropertyType, String pNameOfVendor, String pVendorContactNumber, int pPrice)
+   public Property(String pStreet, String pTown, String pPostcode, String pPropertyType, String pNameOfVendor, String pVendorContactNumber, int pPrice)
    {
      street = pStreet;
      town = pTown;
