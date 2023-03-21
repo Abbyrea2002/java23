@@ -32,36 +32,38 @@ public class Property
      vendorContactNumber = pVendorContactNumber;
      price = pPrice;
      dateRegistered = new Date();
-   }//constructor
+   }//constructor and initalising attributes
+
+
 
    protected void setStreet(String pStreet)
    {
       street = pStreet;
-   }//set
+   }//set street
    protected void setTown(String pTown)
    {
       town = pTown;
-   }//set
+   }//set town
    protected void setPostcode(String pPostcode)
    {
       postcode = pPostcode;
-   }//set
+   }//set postcode
    protected void setPropertyType(String pPropertyType)
    {
       propertyType = pPropertyType;
-   }//set
+   }//set property
    protected void setNameOfVendor(String pNameOfVendor)
    {
       nameOfVendor = pNameOfVendor;
-   }//set
+   }//set name of vendor
    protected void setVendorContactNumber(String pVendorContactNumber)
    {
       vendorContactNumber = pVendorContactNumber;
-   }//set
+   }//set vendor contact name
    protected void setPrice(int pPrice)
    {
       price = pPrice;
-   }//set
+   }//set price
 
    protected String getStreet()
    {
@@ -117,6 +119,6 @@ public class Property
     System.out.println("The vendor of this property is " + nameOfVendor);
     System.out.println("This vendor can be contacted on: " + vendorContactNumber);
 
-   }
+   }// constructor which will display the details of a property when called upon
 
-}
+}//main

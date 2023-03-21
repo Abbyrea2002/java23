@@ -1,6 +1,6 @@
 package EstateAgent;
 
-import EstateAgent.property;
+import EstateAgent.Property;
 
 public class TestProperty
 {

@@ -17,7 +17,7 @@ public class Loops
          System.out.print("Number" + count);
       }//for loop
 
-      //do ... while loop(post test loop, repeats atleast once)
+      //do ... while loop(post test loop, repeats at least once)
       int month;
       do{
          System.out.print("\n Enter a month (1-12): ");
