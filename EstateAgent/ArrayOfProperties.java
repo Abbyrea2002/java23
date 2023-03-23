@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ArrayOfProperties
 {
-   Property obj = new Property();
+
 
 
 
@@ -33,7 +33,7 @@ public class ArrayOfProperties
 
    protected String getStreet(int position)
    {
-    return properties.get(position).getStreet();
+    return properties.get(position).getStreet(); //returns the street of a property from a certain index position
    }//getStreet
 
    protected void insert(Property newProperty)
@@ -45,40 +45,41 @@ public class ArrayOfProperties
    protected void remove(int position)
    {
       properties.remove(position);//removes a property from the list from a certain index position
-      System.out.println(" Removed");//check
+      System.out.println(" Removed");// conformation of removal
    }//remove property
    protected int findPropertyByStreet(String street)
    {
-      //initalising variables
+      //initialising variables
       int index = 0;
       boolean found = false;
       int position = -1;
 
       //do while loop
       //find the property from the list by the street
-      //will repeat aslong as the found = false and index is smaller than number of properties
+      //will repeat along as the found = false and index is smaller than number of properties
       do{
          if(properties.get(position).getStreet()==street){
             found = true;
             position = index;
          }//if
-         index = index + 1;
+         index = index + 1;//adds 1 to index number
       }while (!found && index < getNoOfProperties());
          return position;//returns position
    }//findPropertyByStreet
    protected ArrayList<Integer> findPropertyByTown(String town)
    {
-      int index = 0;
+      int index = 0;//initialises index to 0 and as an integer
       ArrayList<Integer> result = new ArrayList<Integer>();
-      for (int i = 0; i < getNoOfProperties(); i++)
+      for (int i = 0; i < getNoOfProperties(); i++)//function - repeats for loop aslong as i is = to 0 and smaller than the number of properties in the list
       {
+         //function - if statement only runs code inside statement if condition is met
          if (properties.get(index).getTown() == town)
          {
             result.add(index);
          }//if
 
       }//for
-      return result;
+      return result;//returns result
    }//findPropertyByTown
    protected void displayAProperty (int position)
    {
@@ -90,11 +91,12 @@ public class ArrayOfProperties
    protected void displayAllProperties()
    {
       //for loop repeats code inside the loop a certain amount of times
-      for (getNoOfProperties())
+      //for the number of properties in the list
+      for (Property aProperty : properties)
      {
-      System.out.println(obj.displayProperty());
+      aProperty.displayProperty();//displays the details of each property
 
-     }
+     }//for
    }//display all properties
 
 
