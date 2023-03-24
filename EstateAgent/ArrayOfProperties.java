@@ -45,7 +45,7 @@ public class ArrayOfProperties
    protected void remove(int position)
    {
       properties.remove(position);//removes a property from the list from a certain index position
-      System.out.println(" Removed");// conformation of removal
+      System.out.println(properties.get(position).getStreet() + " Removed");// conformation of removal
    }//remove property
    protected int findPropertyByStreet(String street)
    {
@@ -70,7 +70,7 @@ public class ArrayOfProperties
    {
       int index = 0;//initialises index to 0 and as an integer
       ArrayList<Integer> result = new ArrayList<Integer>();
-      for (int i = 0; i < getNoOfProperties(); i++)//function - repeats for loop aslong as i is = to 0 and smaller than the number of properties in the list
+      for (int i = 0; i < getNoOfProperties(); i++)//function - repeats for loop along as I is = to 0 and smaller than the number of properties in the list
       {
          //function - if statement only runs code inside statement if condition is met
          if (properties.get(index).getTown() == town)
