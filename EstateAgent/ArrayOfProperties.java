@@ -1,7 +1,7 @@
 package EstateAgent;
 /**
  * Created by abby rea on 14/03/2023
- * program to define an array of properties class
+ * program to define an ArrayOfProperties class
  */
 
 import java.util.ArrayList;
@@ -14,8 +14,7 @@ public class ArrayOfProperties
 
 
 
-
-   private  List<Property> properties;//initialises the list
+   private List<Property> properties;//initialises the list
    public ArrayOfProperties()
    {
       properties = new ArrayList<Property>();//initialises list
