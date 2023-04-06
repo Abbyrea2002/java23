@@ -15,18 +15,18 @@ public class PropertyManagment
       ArrayOfProperties MyArray = new ArrayOfProperties();
 
       //creates property objects
-      Property oneProperty = new Property("Recreation Road ", "Larne ", "Bt40 1ew ", "semi detached", "richard green", "07565899835", 1);
-      Property twoProperty = new Property ("Lindara Drive", "Carrick", "BT40 2JC", "Detached", "Sandra Nelson", "07999365757", 2);
-     // Property threeProperty = new Property ();
-     // Property fourProperty = new Property ();
-      //Property fiveProperty = new Property ();
+      Property oneProperty = new Property("Recreation Road ", "Larne ", "Bt40 1ew ", "Semi-Detached", "Richard Green", "07565899835", 100000);
+      Property twoProperty = new Property ("Lindara Drive", "Carrick", "BT40 2JC", "Detached", "Sandra Nelson", "07999365757", 150000);
+      Property threeProperty = new Property ("Herbet Avenue", "Larne", "BT40 AB5", "Semi-Detached", "Richard Green", "07654277543", 200000);
+      Property fourProperty = new Property ("Argyll Avenue", "Portrush", "BT5 2JX", "Detached", "Ash Wilson", "07898655432", 250000);
+      Property fiveProperty = new Property ("Sallagh park", "larne", "BT40 3GQ", "Terrace", "Sandra Nelson", "07789677754", 100000);
 
       //inserts property details from oneProperty object into array
       MyArray.insert(oneProperty);
       MyArray.insert(twoProperty);
-      //MyArray.insert(threeProperty);
-      //MyArray.insert(fourProperty);
-      //MyArray.insert(fiveProperty);
+      MyArray.insert(threeProperty);
+      MyArray.insert(fourProperty);
+      MyArray.insert(fiveProperty);
 
       do
       {
