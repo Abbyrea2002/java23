@@ -111,7 +111,7 @@ public class Property
     System.out.println("Property details");
     System.out.println("================");
     System.out.println("This property is in " + getFullAddress());
-    System.out.println("The property is a " + propertyType);
+    System.out.println("The property is " + propertyType);
     System.out.println("The cost of this property is " + price);
     System.out.println("The property was registered " + dateReg);
     System.out.println("Vendors details");
