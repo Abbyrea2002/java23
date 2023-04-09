@@ -1,6 +1,8 @@
 package EstateAgent;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
+import java.util.*;
 
 public class PropertyManagment
 {
@@ -28,7 +30,7 @@ public class PropertyManagment
       MyArray.insert(fourProperty);
       MyArray.insert(fiveProperty);
 
-      do
+      do //do while loop-pre test loop iterates over the code inside until the user decides to exit
       {
          //displays menu to user
          System.out.println("1 - List All Properties");
@@ -39,9 +41,10 @@ public class PropertyManagment
          System.out.println("0 - Exit");
          System.out.println("Enter your choice: ");
          //allows user to input their menu choice
-         option = keyboard.nextInt();
+
 
          if (option == 1){
+            //displays property details when user enters 1 using contructor from ArrayOfProperties
             MyArray.displayAllProperties();
          }//if
          else if(option == 2){
@@ -59,15 +62,21 @@ public class PropertyManagment
          else if(option == 0){
 
          }//else if
-         else{
+         else {
             System.out.println("Invalid choice - please re-enter");
          }
+         try {
 
-      }while(option  >= 0 && option <=5 );
+            option = nextInt();
 
 
-      //displays property details using contructor from ArrayOfProperties
-      MyArray.displayAllProperties();
+         } catch (InputMismatchException e) {
+            System.out.println("Invalid value!");
+         }
+
+      }while(option  >= 0);
+
+
 
 
 
