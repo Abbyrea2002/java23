@@ -10,9 +10,8 @@ public class PropertyManagment
    public static void main(String args[])
 
    {
-      //initialises variables
-      int option;
-      Scanner keyboard = new Scanner(System.in);
+      Scanner sc = new Scanner(System.in);
+
       //creates ArrayOfProperties object
       ArrayOfProperties MyArray = new ArrayOfProperties();
 
@@ -30,6 +29,7 @@ public class PropertyManagment
       MyArray.insert(fourProperty);
       MyArray.insert(fiveProperty);
 
+      boolean valid = false;
       do //do while loop-pre test loop iterates over the code inside until the user decides to exit
       {
          //displays menu to user
@@ -40,17 +40,20 @@ public class PropertyManagment
          System.out.println("5 - Delete a Property");
          System.out.println("0 - Exit");
          System.out.println("Enter your choice: ");
+
          //allows user to input their menu choice
+         int option = sc.nextInt();
 
 
          if (option == 1){
             //displays property details when user enters 1 using contructor from ArrayOfProperties
             MyArray.displayAllProperties();
          }//if
-         else if(option == 2){
+        else if(option == 2){
+          System.out.print("");
 
-         }//else if
-         else if(option == 3){
+        }//else if
+          else if(option == 3){
 
          }//else if
          else if(option == 4){
@@ -60,19 +63,11 @@ public class PropertyManagment
 
          }//else if
          else if(option == 0){
-
+          break;
          }//else if
-         else {
+         else
+         {
             System.out.println("Invalid choice - please re-enter");
-         }
-         try {
-
-            option = nextInt();
-
-
-         } catch (InputMismatchException e) {
-            System.out.println("Invalid value!");
-         }
 
       }while(option  >= 0);
 
