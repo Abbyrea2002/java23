@@ -72,7 +72,7 @@ public class Property
    protected String getTown()
    {
       return town;
-   }//getReg
+   }//get town
    protected String getPostcode()
    {
       return postcode;
