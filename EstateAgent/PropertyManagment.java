@@ -14,9 +14,9 @@ public class PropertyManagment
 
       Scanner sc = new Scanner(System.in);
       String password = "Admin";
-      int option = 0;
+      char option;
       //creates ArrayOfProperties object
-      ArrayOfProperties MyArray = new ArrayOfProperties();
+      ArrayOfProperties1 MyArray = new ArrayOfProperties1();
 
       //creates property objects
       Property oneProperty = new Property("Recreation Road ", "Larne ", "Bt40 1ew ", "Semi-Detached", "Richard Green", "07565899835", 100000);
@@ -46,9 +46,12 @@ public class PropertyManagment
                System.out.println("Enter your choice: ");
 
                //allows user to input their menu choice
-               if (sc.hasNextInt()){
-               option = sc.nextInt();
-               if (option>=0)
+
+
+            option = sc.next().charAt(0);
+
+
+
 
                 switch (option)
                 {
@@ -76,15 +79,12 @@ public class PropertyManagment
                    default:
                      System.out.println("Invalid choice - please re-enter");
                }
-            }
-            else{
-               System.out.println("Enter a Valid integer");
-         }
 
 
 
 
-         } while (option != 0);
+
+         } while (option != 'o' || option != '1' || option != '2'|| option != '3'|| option != '4'|| option != '5');
       }
 }
 
