@@ -36,7 +36,7 @@ public class PropertyManagment
       ArrayOfProperties1 MyArray = new ArrayOfProperties1();
 
       //creates property objects
-      Property oneProperty = new Property("a", "Larne ", "Bt40 1ew ", "Semi-Detached", "Richard Green", "07565899835", 100000);
+      Property oneProperty = new Property("Argyll-Avenue", "Larne ", "Bt40 1ew ", "Semi-Detached", "Richard Green", "07565899835", 100000);
       Property twoProperty = new Property ("LindaraDrive", "Carrick ", "BT40 2JC", "Detached", "Sandra Nelson", "07999365757", 150000);
       Property threeProperty = new Property ("HerbetAvenue", "Larne ", "BT40 AB5", "Semi-Detached", "Richard Green", "07654277543", 200000);
       Property fourProperty = new Property ("ArgyllAvenue", "Portrush ", "BT5 2JX", "Detached", "Ash Wilson", "07898655432", 250000);
@@ -78,12 +78,19 @@ public class PropertyManagment
                       //displays property details when user enters 1 using contructor from ArrayOfProperties
                       MyArray.displayAllProperties();
                    case '2':
-                      System.out.println("What town is the property in?");
+                         ArrayList<Integer> result = new ArrayList<Integer>();
+                         String town;
+
+                         System.out.println("What town is the property in?");
+                         town = sc.next();
+                         MyArray.findPropertyByTown(town);
+                         System.out.println(result);
+
 
                    case '3':
                       String type = null;
                       String phoneNumber = null;
-                      String price = null;
+                      int price;
                       int n = 0;
                       int choice;
                       String town1 = null;
@@ -157,10 +164,10 @@ public class PropertyManagment
                             do
                             {
                                System.out.println("Enter the price of the property: £");
-                               price = sc.next();
-                               for (int l = 0; l < n; l++)
+                               price = sc.nextInt();
+                               for (price.length())
                                {
-                                  if (!Character.isDigit(phoneNumber.charAt(i)))
+                                  if (!Character.isDigit(price.charAt(i)))
                                   {
                                      System.out.println("Invalid price - please re-enter: ");
 
@@ -171,7 +178,7 @@ public class PropertyManagment
 
                          }
                       }
-                      Property propertyNew = new Property(street1, town1, postCode, type, vendorName, phoneNumber, price );
+                      Property propertyNew = new Property(street1, town1, postCode, type, vendorName, phoneNumber, price);
 
                    case '4':
 
