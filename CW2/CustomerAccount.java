@@ -14,16 +14,12 @@ abstract public class CustomerAccount
    public CustomerAccount(int newAccRefNo, String newName, String newAddress)
    {
      accRefNo = newAccRefNo;
+     newAccRefNo = newAccRefNo + 1;
      name = newName;
      address = newAddress;
      balance = 0;
    }//overloaded constructor which initialises the properties of an object from the customer account
 
-   public CustomerAccount(String newName, String newAddress)
-   {
-      name = newName;
-      address = newAddress;
-   }//overloaded initialises properties
 
    protected String getName()
    {

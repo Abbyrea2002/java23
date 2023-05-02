@@ -12,7 +12,7 @@ public class BusinessAccount extends CustomerAccount
 
    public BusinessAccount(String newName, String newAddress, double newDiscount)
    {
-      super(newName,newAddress);
+      super(busAccNumber, newName,newAddress);
       discount = newDiscount;
    }
    public void setDiscount(double newDiscount)

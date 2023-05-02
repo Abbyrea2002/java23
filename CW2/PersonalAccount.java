@@ -7,7 +7,7 @@ public class PersonalAccount extends CustomerAccount
 
    public PersonalAccount(String newName, String newAddress )
    {
-      super(newName, newAddress);
+      super(perAccNumber, newName, newAddress);
    }//overloaded constructor making use of constructor from super class
 
 
