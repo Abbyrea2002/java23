@@ -7,14 +7,15 @@ import java.util.List;
 
 abstract public class CustomerAccount
 {
+
    //initialises variables
-   private int accRefNo;
+
    private String name;
    private String address;
    private double balance;
 
    private List<ArrayOfAccounts> accounts;
-
+public static int accRefNo;
 
 
 
@@ -22,8 +23,7 @@ abstract public class CustomerAccount
 
    public CustomerAccount(int newAccRefNo, String newName, String newAddress)
    {
-     accRefNo = newAccRefNo;
-     newAccRefNo = newAccRefNo + 1;
+
      name = newName;
      address = newAddress;
      balance = 0;
@@ -50,6 +50,10 @@ abstract public class CustomerAccount
       accRefNo = newAccRefNo;
    }//set account ref number constructor
 
+   protected int getAccountRefNo()
+   {
+      return accRefNo;
+   }//get account reference number
 
    protected double payment(double paymentAmount)
    {

@@ -8,6 +8,8 @@ public class BusinessAccount extends CustomerAccount
 
    public BusinessAccount(){
       super();
+      busAccNumber = accRefNo;
+      accRefNo = accRefNo + 1;
    }
 
    public BusinessAccount(String newName, String newAddress, double newDiscount)
