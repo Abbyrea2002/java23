@@ -1,5 +1,10 @@
 package CW2;
 
+import EstateAgent.Property;
+
+import java.util.ArrayList;
+import java.util.List;
+
 abstract public class CustomerAccount
 {
    //initialises variables
@@ -7,6 +12,10 @@ abstract public class CustomerAccount
    private String name;
    private String address;
    private double balance;
+
+   private List<CustomerAccount> accounts;
+
+
 
    public CustomerAccount(){}//default constructor
 

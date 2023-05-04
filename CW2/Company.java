@@ -33,6 +33,7 @@ public class Company
             case 1:
                do
                {
+
                   System.out.println("Do you wish this account to be a personal account? (y/n): ");
                   char answer = sc.next().charAt(0);
                   if ((answer == 'y') || (answer == 'Y'))
@@ -40,7 +41,8 @@ public class Company
 
                   } else if ((answer == 'n') || (answer == 'N'))
                   {
-
+                    System.out.println("Do you wish this account to be a buisness account? (y/n): ");
+                     answer = sc.next().charAt(0);
                   }
                }while(true);
             case 2:
