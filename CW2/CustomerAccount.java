@@ -13,11 +13,11 @@ abstract public class CustomerAccount
    private String address;
    private double balance;
 
-   private List<CustomerAccount> accounts;
+   private List<ArrayOfAccounts> accounts;
 
 
 
-   public CustomerAccount(){}//default constructor
+
 
 
    public CustomerAccount(int newAccRefNo, String newName, String newAddress)
@@ -28,6 +28,11 @@ abstract public class CustomerAccount
      address = newAddress;
      balance = 0;
    }//overloaded constructor which initialises the properties of an object from the customer account
+
+   public CustomerAccount()
+   {
+
+   }//default constructor
 
 
    protected String getName()
