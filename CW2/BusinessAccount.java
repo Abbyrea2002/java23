@@ -1,15 +1,20 @@
 package CW2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BusinessAccount extends CustomerAccount
 {
 
    public static int busAccNumber = 2001;
    private double discount;
+   private List<BusinessAccount> busAccList;
 
    public BusinessAccount(){
       super();
       busAccNumber = accRefNo;
       accRefNo = accRefNo + 1;
+      busAccList = new ArrayList<BusinessAccount>();
    }
 
    public BusinessAccount(String newName, String newAddress, double newDiscount)
@@ -32,5 +37,15 @@ public class BusinessAccount extends CustomerAccount
     return super.toString() + "the discount applied is: " + discount;
    }
 
+   protected int getNoOfBusAccounts() {
+      return busAccList.size();
+
+   }
+   protected void insert(BusinessAccount busAccNew) {
+
+
+      busAccList.add(busAccNew);
+
+   }
 
 }

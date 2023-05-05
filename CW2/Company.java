@@ -12,7 +12,8 @@ public class Company
 
    {
 
-      ArrayOfAccounts MyArray = new ArrayOfAccounts();
+      PersonalAccount MyPer = new PersonalAccount();
+      BusinessAccount MyBus = new BusinessAccount();
       Scanner sc = new Scanner(System.in);
       char option;
 
@@ -29,7 +30,7 @@ public class Company
          System.out.println("Please enter your choice: ");
 
          option = sc.next().charAt(0);
-         switch(option)
+         switch (option)
          {
             case '0':
                System.exit(0);
@@ -37,44 +38,44 @@ public class Company
                String name;
                String address;
 
+               System.out.println("Please enter your name: ");
+               name = sc.next();
 
 
-                  System.out.println("Please enter your name: ");
-                  name = sc.next();
+               System.out.println("Please enter your address: ");
+               address = sc.next();
 
-                  System.out.println("Please enter your address: ");
-                  address = sc.next();
 
-                  System.out.println("Do you wish this account to be a personal account? (y/n): ");
+               do
+               {
+                  System.out.println("====Account type====");
+                  System.out.println("1 - Personal Account ");
+                  System.out.println("2 - Business Account ");
+                  System.out.println("Enter your choice: ");
                   char answer = sc.next().charAt(0);
-                  if ((answer == 'y') || (answer == 'Y'))
+                  switch(answer)
                   {
+                     case '1':
                      int perAccNumber = 1001;
-                     ArrayOfAccounts accountsNew = new ArrayOfAccounts(name, address, perAccNumber);
-                     MyArray.insert(accountsNew);
-                     System.out.println("Your reference number is: " + MyArray.getAccountRefNo());
+                     PersonalAccount perAccNew = new PersonalAccount(name, address, perAccNumber);
+                     MyPer.insert(perAccNew);
+                     System.out.println(MyPer);
                      break;
-                  } else if ((answer == 'n') || (answer == 'N'))
-                  {
-                    System.out.println("Do you wish this account to be a business account? (y/n): ");
-                      char choice = sc.next().charAt(0);
-                      if ((choice == 'y') || (choice == 'Y'))
-                      {
-                         int busAccNumber = 2001;
-                         ArrayOfAccounts accountsNew = new ArrayOfAccounts(name, address, busAccNumber);
-                         MyArray.insert(accountsNew);
-                         System.out.println("Your reference number is: " + MyArray.getAccountRefNo());
-                         break;
+                     case '2':
 
-                      }
-                      else if((choice == 'n') || (choice == 'N'))
-                      {
-
-                      }
-
-
+                     int busAccNumber = 2001;
+                     BusinessAccount busAccNew = new BusinessAccount(name, address, busAccNumber);
+                     MyBus.insert(busAccNew);
+                     System.out.println();
                      break;
+                     default:
+                        System.out.println("Invalid choice please re-enter");
                   }
+                  break;
+               }while(true);
+               break;
+
+
 
             case 2:
                do
@@ -86,6 +87,19 @@ public class Company
                   System.out.println("5 - For business account, change discount to be applied");
                   System.out.println("0 - Exit program ");
                   System.out.println("Enter your choice: ");
+                  char choice = sc.next().charAt(0);
+                  switch(choice)
+                  {
+                     case '0':
+                        System.exit(0);
+                     case '1':
+                     case '2':
+                     case '3':
+                     case '4':
+                     case '5':
+
+                  }
+                  break;
                }while(true);
             default:
               System.out.println("Invalid choice please re-enter");

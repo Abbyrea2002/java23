@@ -10,9 +10,9 @@ abstract public class CustomerAccount
 
    //initialises variables
 
-   private String name;
-   private String address;
-   private double balance;
+   private static String name;
+   private static String address;
+   private static double balance;
 
    private List<ArrayOfAccounts> accounts;
 public static int accRefNo;
@@ -26,14 +26,25 @@ public static int accRefNo;
 
      name = newName;
      address = newAddress;
-     balance = 0;
+     balance = 00.00;
    }//overloaded constructor which initialises the properties of an object from the customer account
 
    public CustomerAccount()
    {
 
    }//default constructor
-
+protected void setBalance()
+{
+   balance = 00.00;
+}
+ protected void setName(String newName)
+ {
+    name = newName;
+ }
+ protected void setAddress(String newAddress)
+ {
+    address = newAddress;
+ }
 
    protected String getName()
    {
@@ -67,7 +78,7 @@ public static int accRefNo;
 
    public String toString()
    {
-      return "Customer " + accRefNo + " name is: " + ", they live at " + address + ". their balance is: £";
+      return  "Account number:  " + accRefNo + " Name: " + name + "  Address: " + address + " Balance: £";
    }// method which returns a string which will display the details of the account
 
    public void displayBalance()
