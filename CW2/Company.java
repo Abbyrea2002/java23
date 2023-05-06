@@ -53,58 +53,66 @@ public class Company
                   System.out.println("2 - Business Account ");
                   System.out.println("Enter your choice: ");
                   char answer = sc.next().charAt(0);
-                  switch(answer)
+                  switch (answer)
                   {
                      case '1':
-                     int perAccNumber = 1001;
-                     PersonalAccount perAccNew = new PersonalAccount(name, address, perAccNumber);
-                     MyPer.insert(perAccNew);
-                     System.out.println(MyPer);
-                     break;
+                        int perAccNumber = 1001;
+                        PersonalAccount perAccNew = new PersonalAccount(name, address, perAccNumber);
+                        MyPer.insert(perAccNew);
+                        System.out.println(MyPer);
+                        break;
                      case '2':
 
-                     int busAccNumber = 2001;
-                     BusinessAccount busAccNew = new BusinessAccount(name, address, busAccNumber);
-                     MyBus.insert(busAccNew);
-                     System.out.println();
-                     break;
+                        int busAccNumber = 2001;
+                        BusinessAccount busAccNew = new BusinessAccount(name, address, busAccNumber);
+                        MyBus.insert(busAccNew);
+                        System.out.println();
+                        break;
                      default:
                         System.out.println("Invalid choice please re-enter");
                   }
                   break;
-               }while(true);
+               } while (true);
                break;
 
 
-
             case 2:
+               char choice;
                do
-               {
-                  System.out.println("1 – Record a new sale");
-                  System.out.println("2 - Make a payment to the account");
-                  System.out.println("3 - Display balance");
-                  System.out.println("4 - Display details of account");
-                  System.out.println("5 - For business account, change discount to be applied");
-                  System.out.println("0 - Exit program ");
-                  System.out.println("Enter your choice: ");
-                  char choice = sc.next().charAt(0);
-                  switch(choice)
-                  {
-                     case '0':
-                        System.exit(0);
-                     case '1':
-                     case '2':
-                     case '3':
-                     case '4':
-                     case '5':
+            {
+               System.out.println("1 – Record a new sale");
+               System.out.println("2 - Make a payment to the account");
+               System.out.println("3 - Display current balance");
+               System.out.println("4 - Display details of account");
+               System.out.println("5 - For business account, change discount to be applied");
+               System.out.println("0 - Exit program ");
+               System.out.println("Enter your choice: ");
 
-                  }
-                  break;
-               }while(true);
+               choice = sc.next().charAt(0);
+               switch (choice)
+               {
+                  case '0':
+                     System.exit(0);
+                  case '1':
+                  case '2':
+                  case '3':
+                     System.out.println("Please enter your account reference number: ");
+                     int accRef = sc.nextInt();
+                     for (int i = 0; i < MyPer.getNoOfAccounts; i++ )
+                     {
+
+                     }
+                  case '4':
+                  case '5':
+                  default:
+                     System.out.println("Invalid choice please re-enter");
+               }
+               break;
+            } while (choice != 0);
             default:
-              System.out.println("Invalid choice please re-enter");
+               System.out.println("Invalid choice please re-enter");
          }
       }while(true);
-   }
+   }//main
 
-}
+}//class

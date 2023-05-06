@@ -33,4 +33,19 @@ public class PersonalAccount extends CustomerAccount
       perAccList.add(perAccNew);
 
    }
+   protected int findBalanceByRef(int perAccNumber) {
+      boolean found = false;
+      int index = 0, position = -1;
+      // Keep checking until the account reference  is found or all accounts have been checked
+      do {
+         // Check if the street at the index position equals the street passed as the parameter
+         if (perAccList.get(index).getAccountRefNo().equals(accRefNo)) {
+            found = true;
+            position = index;
+         }
+         index++;
+      } while ((!found) && (index < perAccList.size()));
+      // Return the index position of the account with the required account reference (or -1 if not found)
+      return position;
+   }
 }
