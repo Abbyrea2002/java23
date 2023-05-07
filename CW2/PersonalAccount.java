@@ -26,6 +26,10 @@ public class PersonalAccount extends CustomerAccount
    public PersonalAccount(String name, String address, int perAccNumber)
    {
    }
+   protected int getNoOfPerAccounts()
+   {
+      return perAccList.size();
+   }
 
    protected void insert(PersonalAccount perAccNew) {
 
@@ -48,4 +52,11 @@ public class PersonalAccount extends CustomerAccount
       // Return the index position of the account with the required account reference (or -1 if not found)
       return position;
    }
+
+   protected PersonalAccount getCurrent(int position)
+   {
+      return perAccList.get(position);
+   }
+
+
 }

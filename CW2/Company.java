@@ -3,6 +3,7 @@ package CW2;
 import EstateAgent.ArrayOfProperties1;
 import EstateAgent.Property;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Company
@@ -98,7 +99,16 @@ public class Company
                   case '3':
                      System.out.println("Please enter your account reference number: ");
                      int accRef = sc.nextInt();
-                     for (int i = 0; i < MyPer.getNoOfAccounts; i++ )
+                     int display = MyPer.findBalanceByRef(accRef);
+
+                     if ((accRef >= 1001)|| (accRef <= 1999))
+                     {
+                        for (int i = 0; i < MyPer.getNoOfPerAccounts(); i++)
+                        {
+
+                        }
+                     }
+                     else if ((accRef >= 2001)||(accRef <= 2999))
                      {
 
                      }
