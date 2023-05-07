@@ -97,22 +97,96 @@ public class Company
                   case '1':
                   case '2':
                   case '3':
-                     System.out.println("Please enter your account reference number: ");
-                     int accRef = sc.nextInt();
-                     int display = MyPer.findBalanceByRef(accRef);
-
-                     if ((accRef >= 1001)|| (accRef <= 1999))
+                     do
                      {
-                        for (int i = 0; i < MyPer.getNoOfPerAccounts(); i++)
+                        System.out.println("Please enter your account reference number: ");
+                        int accRef = sc.nextInt();
+                        ArrayList<Integer> display = MyPer.findBalanceByRef(accRef);
+
+                        if ((accRef >= 1001) || (accRef <= 1999))
                         {
+                           if (display.size() > 0)
+                           {
+                              for (int i = 0; i < display.size(); i++)
+                              {
+                               MyPer.displayBalance(display.get(i));
 
+                              }
+                           } else
+                           {
+                              System.out.println("There is no Personal account with this account reference number");
+                              System.out.println("Please re-enter");
+
+
+                           }
+                        } else if ((accRef >= 1001) || (accRef <= 1999))
+                        {
+                           if (display.size() > 0)
+                           {
+                              for (int i = 0; i < MyBus.getNoOfBusAccounts(); i++)
+                              {
+                               MyBus.displayBalance(display.get(i));
+
+                              }
+                           }
+                           else
+                           {
+                              System.out.println("There is no business account with this reference number");
+                              System.out.println("Please re-enter");
+
+                           }
+
+                        } else
+                        {
+                          System.out.println("Invalid number - please re-enter");
                         }
-                     }
-                     else if ((accRef >= 2001)||(accRef <= 2999))
-                     {
-
-                     }
+                        break;
+                     }while(true);
                   case '4':
+                     do
+                     {
+                        System.out.println("Please enter your account reference number: ");
+                        int accRef = sc.nextInt();
+                        ArrayList<Integer> display = MyPer.findBalanceByRef(accRef);
+                        if ((accRef >= 1001) || (accRef <= 1999))
+                        {
+                           if (display.size() > 0)
+                           {
+                              for (int i = 0; i < display.size(); i++)
+                              {
+                                 MyPer.toString(display.get(i));
+
+                              }
+                           } else
+                           {
+                              System.out.println("There is no Personal account with this account reference number");
+                              System.out.println("Please re-enter");
+
+
+                           }
+                        } else if ((accRef >= 2001) || (accRef <= 2999))
+                        {
+                           if (display.size() > 0)
+                           {
+                              for (int i = 0; i < display.size(); i++)
+                              {
+                                 MyBus.toString(display.get(i));
+
+                              }
+                           } else
+                           {
+                              System.out.println("There is no Personal account with this account reference number");
+                              System.out.println("Please re-enter");
+
+
+                           }
+
+                        } else
+                        {
+                           System.out.println("Invaild number please re-enter");
+                        }
+                        break;
+                     }while(true);
                   case '5':
                   default:
                      System.out.println("Invalid choice please re-enter");

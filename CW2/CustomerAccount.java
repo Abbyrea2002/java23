@@ -1,8 +1,5 @@
 package CW2;
 
-import EstateAgent.Property;
-
-import java.util.ArrayList;
 import java.util.List;
 
 abstract public class CustomerAccount
@@ -76,12 +73,12 @@ protected void setBalance()
       return saleAmount + balance;
    }// method which adds the sale amount to the current balance
 
-   public String toString()
+   public String toString(int index)
    {
       return  "Account number:  " + accRefNo + " Name: " + name + "  Address: " + address + " Balance: £";
    }// method which returns a string which will display the details of the account
 
-   public void displayBalance()
+   public void displayBalance(int index)
    {
       System.out.println("The current balance is this account is: £" + balance);
    }// method which prints the current balance of the account

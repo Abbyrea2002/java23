@@ -13,7 +13,7 @@ public class PersonalAccount extends CustomerAccount
    public PersonalAccount(){
       super();
       perAccNumber = accRefNo;
-      accRefNo = accRefNo + 1;
+      perAccNumber = perAccNumber + 1;
       perAccList = new ArrayList<PersonalAccount>();
    }//default constructor including reference to superclass
 
@@ -57,6 +57,7 @@ public class PersonalAccount extends CustomerAccount
    {
       return perAccList.get(position);
    }
+
 
 
 }
