@@ -47,5 +47,18 @@ public class BusinessAccount extends CustomerAccount
       busAccList.add(busAccNew);
 
    }
+   protected ArrayList<Integer> findBalanceByAddress(String address) {
+      ArrayList<Integer> result = new ArrayList<Integer>();
+      for (int index = 0; index < busAccList.size(); index++) {
+         if (busAccList.get(index).getAddress().equals(address)) {
+            result.add(index);
+         }//if
+      }//for
+      return result;
+   }
+   protected BusinessAccount getCurrent(int position)
+   {
+      return busAccList.get(position);
+   }
 
 }

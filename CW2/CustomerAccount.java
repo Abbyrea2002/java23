@@ -58,7 +58,7 @@ protected void setBalance()
       accRefNo = newAccRefNo;
    }//set account ref number constructor
 
-   protected int getAccountRefNo()
+   protected int getAccountRefNo(int index)
    {
       return accRefNo;
    }//get account reference number
@@ -70,7 +70,7 @@ protected void setBalance()
 
    protected double recordSale(double saleAmount)
    {
-      return saleAmount + balance;
+      return balance + saleAmount;
    }// method which adds the sale amount to the current balance
 
    public String toString(int index)

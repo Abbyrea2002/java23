@@ -95,51 +95,112 @@ public class Company
                   case '0':
                      System.exit(0);
                   case '1':
-                  case '2':
-                  case '3':
+                     int accref;
+                     double saleAmount;
                      do
                      {
-                        System.out.println("Please enter your account reference number: ");
-                        int accRef = sc.nextInt();
-                        ArrayList<Integer> display = MyPer.findBalanceByRef(accRef);
-
-                        if ((accRef >= 1001) || (accRef <= 1999))
+                        System.out.println("Is your account: ");
+                        System.out.println("1 - Personal");
+                        System.out.println("2 - Business");
+                        char case0 = sc.next().charAt(0);
+                        switch(case0)
                         {
+                           case '1':
+                              System.out.println("Please enter your account reference: ");
+                              accref = sc.nextInt();
+                              for (int i = 0; i < MyPer.getNoOfPerAccounts(); i++)//for loop iterates over text inside certain amount of times based on condition - number of properties
+                              {
+                                 MyPer.getAccountRefNo(i);//gets index point of property with particular street
+                                 if (accref.equals(MyPer.getAccountRefNo(i)))//if street1 equals the element from my array executed following code
+                                 {
+                                    System.out.println("Please enter the sale amount: £");
+                                    saleAmount = sc.nextDouble();
+                                    MyPer.getCurrent(i).recordSale(saleAmount);
+
+                                 } else//else - if no property with that street exists execute the following code
+                                 {
+                                    System.out.println("There is no account with this address please re-enter");
+                                 }
+                              }
+
+
+                           case '2':
+                              System.out.println("Please enter your address: ");
+                              address2 = sc.next();
+                              for (int i = 0; i < MyBus.getNoOfBusAccounts(); i++)//for loop iterates over text inside certain amount of times based on condition - number of properties
+                              {
+                                 MyBus.getAddress(i);//gets index point of property with particular street
+                                 if (address2.equals(MyBus.getAddress(i)))//if street1 equals the element from my array executed following code
+                                 {
+                                    System.out.println("Please enter the sale amount: £");
+                                    saleAmount = sc.nextDouble();
+                                    MyBus.getCurrent(i).recordSale(saleAmount);
+                                 } else//else - if no property with that street exists execute the following code
+                                 {
+                                    System.out.print("There are no account with this address please re-enter");
+                                 }
+                              }
+                        }
+
+                     }while(true);
+                  case '2':
+                     System.out.println("Is your account: ");
+                     System.out.println("1 - Personal");
+                     System.out.println("2 - Business");
+                     char case1 = sc.next().charAt(0);
+                     System.out.println("Please enter your address: ");
+                     int accRef1 = sc.nextInt();
+                  case '3':
+                     String address1;
+                     do
+                     {
+                        System.out.println("Is your account: ");
+                        System.out.println("1 - Personal");
+                        System.out.println("2 - Business");
+                        char case2 = sc.next().charAt(0);
+                        switch(case2)
+                        {
+                           case '1':
+                           System.out.println("Please enter your address: ");
+                           address1 = sc.next();
+                           ArrayList<Integer> display = MyPer.findBalanceByAddress(address1);
+
                            if (display.size() > 0)
                            {
                               for (int i = 0; i < display.size(); i++)
                               {
-                               MyPer.displayBalance(display.get(i));
+                                 MyPer.displayBalance(display.get(i));
 
                               }
                            } else
                            {
-                              System.out.println("There is no Personal account with this account reference number");
+                              System.out.println("There is no Personal account with this address");
                               System.out.println("Please re-enter");
 
 
                            }
-                        } else if ((accRef >= 1001) || (accRef <= 1999))
-                        {
-                           if (display.size() > 0)
+                           case '2':
+                           System.out.println("Please enter your address: ");
+                           address1 = sc.next();
+                           ArrayList<Integer> display2 = MyBus.findBalanceByAddress(address1);
+                           if (display2.size() > 0)
                            {
                               for (int i = 0; i < MyBus.getNoOfBusAccounts(); i++)
                               {
-                               MyBus.displayBalance(display.get(i));
+                                 MyBus.displayBalance(display2.get(i));
 
                               }
-                           }
-                           else
+                           } else
                            {
                               System.out.println("There is no business account with this reference number");
                               System.out.println("Please re-enter");
 
                            }
-
-                        } else
-                        {
-                          System.out.println("Invalid number - please re-enter");
+                           default:
+                              System.out.println("Invaild choice please re-enter");
                         }
+
+
                         break;
                      }while(true);
                   case '4':
