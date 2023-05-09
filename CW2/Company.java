@@ -249,6 +249,19 @@ public class Company
                         break;
                      }while(true);
                   case '5':
+                     double discount =0.0;
+                     do
+                     {
+                        try
+                        {
+                           System.out.println("What would you like the discount changed to: ");
+                            discount = sc.nextInt();
+                           MyBus.setDiscount(discount);
+                        } catch (NumberFormatException nfe)
+                        {
+                           System.out.println("Invalid please re-enter");
+                        }
+                     }while(discount != 0.0);
                   default:
                      System.out.println("Invalid choice please re-enter");
                }
