@@ -8,18 +8,20 @@ import java.util.Scanner;
 
 public class Company
 {
-   private static int accRefNo;
+   private static int accRefNo;//initialises the variable
    public static void main (String args[])
 
    {
-
+      //initialises array lists
       PersonalAccount MyPer = new PersonalAccount();
       BusinessAccount MyBus = new BusinessAccount();
+      //scanner
       Scanner sc = new Scanner(System.in);
+      //initialises variable
       char option;
 
 
-
+//do while loop iterates over code inside while true
       do
       {
 
@@ -29,58 +31,81 @@ public class Company
          System.out.println("2 - Existing customers");
          System.out.println("0 - Exit program");
          System.out.println("Please enter your choice: ");
-
+         //input - allows user to enter their option
          option = sc.next().charAt(0);
+         //switch - function inside case will run depending on users inputs
          switch (option)
          {
             case '0':
-               System.exit(0);
+               System.exit(0);//breaks code
             case '1':
+               //initialises variables
                String name;
                String address;
-
+               //output - displays message to user
                System.out.println("Please enter your name: ");
+               //allows user to enter data
                name = sc.next();
 
-
+               //output - displays message to user
                System.out.println("Please enter your address: ");
+               //allows user to enter data
                address = sc.next();
 
-
+               //do while loop - iterates over code in a loop while true
                do
                {
+                  //output - displays menu to user
                   System.out.println("====Account type====");
                   System.out.println("1 - Personal Account ");
                   System.out.println("2 - Business Account ");
                   System.out.println("Enter your choice: ");
+                  //initialises variable and allows user to enter data
                   char answer = sc.next().charAt(0);
+                  //switch - function inside case will run depending on users inputs
                   switch (answer)
                   {
                      case '1':
+                        //initialises variable
                         int perAccNumber = 1001;
+                        //creates new object in array
                         PersonalAccount perAccNew = new PersonalAccount(name, address, perAccNumber);
+                        //inserts object into array
                         MyPer.insert(perAccNew);
+                        //output - displays
                         System.out.println(MyPer);
+                        //breaks code
                         break;
                      case '2':
-
+                        //initialises variable
                         int busAccNumber = 2001;
+                        //creates new object
                         BusinessAccount busAccNew = new BusinessAccount(name, address, busAccNumber);
+                        //inserts object into array
                         MyBus.insert(busAccNew);
+                        //output - displays
                         System.out.println();
+                        //breaks code
                         break;
+                        //default case - displays error message when input data is incorrect
                      default:
                         System.out.println("Invalid choice please re-enter");
                   }
+                  //breaks code
                   break;
+                  //end of while loop
                } while (true);
+               //breaks code
                break;
 
 
             case 2:
+               //initialises variable
                char choice;
+               //do while loop - iterates of code inside while true
                do
             {
+               //output - displays menu to user
                System.out.println("1 – Record a new sale");
                System.out.println("2 - Make a payment to the account");
                System.out.println("3 - Display current balance");
@@ -88,21 +113,27 @@ public class Company
                System.out.println("5 - For business account, change discount to be applied");
                System.out.println("0 - Exit program ");
                System.out.println("Enter your choice: ");
-
+               //allows user to enter data
                choice = sc.next().charAt(0);
+               //switch -  iterates case depending on users input
                switch (choice)
                {
                   case '0':
-                     System.exit(0);
+                     System.exit(0);//breaks code
                   case '1':
+                     //initialises variable
                      int accref;
                      double saleAmount;
+                     //do while loop
                      do
                      {
+                        //output - displays menu to user
                         System.out.println("Is your account: ");
                         System.out.println("1 - Personal");
                         System.out.println("2 - Business");
+                        //initialises variable and allows user to enter data
                         char case0 = sc.next().charAt(0);
+                        //switch - -  iterates case depending on users input
                         switch(case0)
                         {
                            case '1':
