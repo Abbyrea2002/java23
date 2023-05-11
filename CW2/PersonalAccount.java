@@ -7,6 +7,9 @@ import java.util.List;
 
 public class PersonalAccount extends CustomerAccount
 {
+   //initialses variables
+   //private - can only access on this package
+   //public - can be accessed
    private static String name;
    private static String address;
    private static double balance;

@@ -6,42 +6,49 @@ abstract public class CustomerAccount
 {
 
    //initialises variables
+   //static means the variables data can change
 
    private static String name;
    private static String address;
    private static double balance;
 
+   public static int accRefNo;
 
-public static int accRefNo;
-
-
+   public CustomerAccount(){}//default constructor
 
 
 
    public CustomerAccount(int newAccRefNo, String newName, String newAddress)
    {
-
+      accRefNo = newAccRefNo;
      name = newName;
      address = newAddress;
      balance = 00.00;
    }//overloaded constructor which initialises the properties of an object from the customer account
 
-   public CustomerAccount()
-   {
-
-   }//default constructor
-protected void setBalance()
+   //setters - makes it so the variables can be set data
+   //sets balance to 0.0
+   protected void setBalance()
 {
    balance = 00.00;
-}
- protected void setName(String newName)
+}//void - empty parameter
+   //sets name variable
+   protected void setName(String newName)
  {
     name = newName;
- }
- protected void setAddress(String newAddress)
+ }//void - empty parameter
+   //sets address variable as newAddress
+   protected void setAddress(String newAddress)
  {
     address = newAddress;
- }
+ }//void - empty parameter
+   //sets accRefNo variable
+   protected void setAccRefNo(int newAccRefNo)
+   {
+      accRefNo = newAccRefNo;
+   }//void - empty parameter
+
+   //getters - allows for data assigned to the variable to be pulled
 
    protected String getName(int index)
    {
@@ -53,15 +60,11 @@ protected void setBalance()
       return address;
    }// get address constructor | returns variable data
 
-   protected void setAccRefNo(int newAccRefNo)
-   {
-      accRefNo = newAccRefNo;
-   }//set account ref number constructor
-
-   protected int getAccountRefNo(int index)
+   protected int getAccountRefNo()
    {
       return accRefNo;
-   }//get account reference number
+   }//get account reference number | returns variable data
+
 
    protected double payment(double paymentAmount)
    {
