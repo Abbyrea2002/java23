@@ -7,6 +7,9 @@ import java.util.List;
 
 public class PersonalAccount extends CustomerAccount
 {
+   private static String name;
+   private static String address;
+   private static double balance;
    public static int perAccNumber = 1001;//initialises personal account number
 
    private List<PersonalAccount> perAccList;
@@ -17,14 +20,17 @@ public class PersonalAccount extends CustomerAccount
       perAccList = new ArrayList<PersonalAccount>();
    }//default constructor including reference to superclass
 
-   public PersonalAccount(String newName, String newAddress )
+   public PersonalAccount(String newName, String newAddress, int perAccNumber )
    {
       super(perAccNumber, newName, newAddress);
+      newName = name;
+      newAddress = address;
    }//overloaded constructor making use of constructor from super class
 
 
-   public PersonalAccount(String name, String address, int perAccNumber)
+  /// public PersonalAccount(String name, String address, int perAccNumber)
    {
+
    }
    protected int getNoOfPerAccounts()
    {
@@ -37,22 +43,8 @@ public class PersonalAccount extends CustomerAccount
       perAccList.add(perAccNew);
 
    }
-   protected int findAccountByAddress(String address) {
-      boolean found = false;
-      int index = 0, position = -1;
-      // Keep checking until the account reference  is found or all accounts have been checked
-      do {
-         // Check if the street at the index position equals the street passed as the parameter
-         if (perAccList.get(index).getName().equals(address)) {
-            found = true;
-            position = index;
-         }
-         index++;
-      } while ((!found) && (index < perAccList.size()));
-      // Return the index position of the account with the required account reference (or -1 if not found)
-      return position;
-   }
-   protected ArrayList<Integer> findBalanceByAddress(String address) {
+
+   protected ArrayList<Integer> findAccountByAddress(String address) {
       ArrayList<Integer> result = new ArrayList<Integer>();
       for (int index = 0; index < perAccList.size(); index++) {
          if (perAccList.get(index).getAddress().equals(address)) {

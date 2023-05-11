@@ -11,7 +11,7 @@ abstract public class CustomerAccount
    private static String address;
    private static double balance;
 
-   private List<ArrayOfAccounts> accounts;
+
 public static int accRefNo;
 
 
@@ -43,7 +43,7 @@ protected void setBalance()
     address = newAddress;
  }
 
-   protected String getName()
+   protected String getName(int index)
    {
       return name;
    }//get name constructor | returns variable data
