@@ -39,9 +39,9 @@ public class Company
             case '0':
                System.exit(0);//breaks code
             case '1':
-               //initialises variables
-               String name;
+               //initialises variable
                String address;
+               String name;
 
 
 
@@ -84,6 +84,7 @@ public class Company
                      case '2':
                         //initialises variable
                         int busAccNumber = 2001;
+
                         //creates new object
                         BusinessAccount busAccNew = new BusinessAccount(name, address, busAccNumber);
                         //inserts object into array
@@ -128,7 +129,7 @@ public class Company
                   case '1':
                      //initialises variable
 
-                     int accref;
+
                      double saleAmount;
                      //do while loop
                      do
@@ -138,9 +139,9 @@ public class Company
                         System.out.println("1 - Personal");
                         System.out.println("2 - Business");
                         //initialises variable and allows user to enter data
-                        char case0 = sc.next().charAt(0);
+                        char option1 = sc.next().charAt(0);
                         //switch - -  iterates case depending on users input
-                        switch(case0)
+                        switch(option1)
                         {
                            case '1':
                               System.out.println("Please enter your name: ");
