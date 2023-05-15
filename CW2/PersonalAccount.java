@@ -26,15 +26,9 @@ public class PersonalAccount extends CustomerAccount
    public PersonalAccount(String newName, String newAddress, int perAccNumber )
    {
       super(perAccNumber, newName, newAddress);
-      newName = name;
-      newAddress = address;
    }//overloaded constructor making use of constructor from super class
 
 
-  /// public PersonalAccount(String name, String address, int perAccNumber)
-   {
-
-   }
    protected int getNoOfPerAccounts()
    {
       return perAccList.size();

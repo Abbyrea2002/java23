@@ -78,7 +78,7 @@ abstract public class CustomerAccount
 
    public String toString(int index)
    {
-      return  "Account number:  " + accRefNo + " Name: " + name + "  Address: " + address + " Balance: £";
+      return  (super.toString() + "Account number:  " + getAccountRefNo() + " Name: " + name + "  Address: " + address + " Balance: £");
    }// method which returns a string which will display the details of the account
 
    public void displayBalance(int index)
