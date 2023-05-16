@@ -159,8 +159,8 @@ public class Company
                               int accRef = sc.nextInt();
                               for (int i = 0; i < MyPer.getNoOfPerAccounts(); i++)//for loop iterates over text inside certain amount of times based on condition - number of accounts
                               {
-                                 MyPer.getName(i);//gets index point of account by name
-                                 if (accRef.equals(MyPer.getAccountRefNo(i)))//if name equals the element from my array executed following code
+                                 MyPer.get(i);//gets index point of account by name
+                                 if (accRef == (MyPer.getAccountRefNo(i)))//if name equals the element from my array executed following code
                                  {
                                     System.out.println("Please enter the sale amount: £");
                                     saleAmount = sc.nextDouble();
