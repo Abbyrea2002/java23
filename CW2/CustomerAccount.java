@@ -16,10 +16,12 @@ abstract public class CustomerAccount
 
    public static int accRefNo;
 
+   public static double discount = 0.1;
 
 
 
-   public CustomerAccount(){}//default constructor
+
+
 
 
 
@@ -35,18 +37,7 @@ abstract public class CustomerAccount
      accRefNo = accRefNo + 1;
    }//overloaded constructor which initialises the properties of an object from the customer account
 
-      public CustomerAccount(int busAccNumber, int newAccRefNo, String newName, String newAddress)
-      {
-         accRefNo = newAccRefNo;
-         name = newName;
-         address = newAddress;
-         balance = 00.00;
-         accRefNo = busAccNumber;
-         busAccNumber = busAccNumber + 1;
-         busAccNumber = accRefNo;
-         accRefNo = accRefNo + 1;
 
-      }
 
    //setters - makes it so the variables can be set data
    //sets balance to 0.0
@@ -100,13 +91,24 @@ abstract public class CustomerAccount
       return balance + saleAmount;
    }// method which adds the sale amount to the current balance
 
-   public String toString(int index)
+   public static String toString(int index )
    {
-      return  ( "Account number:  " + getAccountRefNo() + " Name: " + name + "  Address: " + address + " Balance: £"+ balance);
+      return  ( "Account number:  " + accRefNo + " Name: " + name + "  Address: " + address + " Balance: £"+ balance);
    }// method which returns a string which will display the details of the account
 
-   public void displayBalance(int index)
+   public boolean displayBalance(int index)
    {
       System.out.println("The current balance is this account is: £" + balance);
+      return false;
    }// method which prints the current balance of the account
+   protected double setDiscount(double newDiscount)
+   {
+
+      return discount;
+   }
+
+   public double getDiscount(double paymentAmount)
+   {
+      return paymentAmount * discount;
+   }
 }

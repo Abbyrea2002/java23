@@ -1,33 +1,42 @@
 package CW2;
 
-import EstateAgent.ArrayOfProperties1;
-import EstateAgent.Property;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
+import java.util.Arrays;
+
 
 public class Company
 {
+   static Scanner keys = new Scanner(System.in);
+
+   public static String getMessage(String message)
+   {
+      System.out.print(message);
+      return keys.next();
+   }
+
+
    private static int accRefNo;//initialises the variable
 
    public static int perAccNumber;
 
    public static int busAccNumber;
-   public static void main (String args[])
+
+
+   public static void main(String args[])
 
    {
       //initialises array lists
-      PersonalAccount MyPer = new PersonalAccount();
-      BusinessAccount MyBus = new BusinessAccount();
+      ArrayOfAccounts MyArray = new ArrayOfAccounts();
       //scanner - allows user to input data
       Scanner sc = new Scanner(System.in);
       //initialises variable option as a character
       char switch0;
+      boolean search = false;
+      int index = 0, choice3;
 
-     // PersonalAccount perAccOne = new PersonalAccount();
+      // PersonalAccount perAccOne = new PersonalAccount();
       //PersonalAccount perAccTwo = new PersonalAccount();
-     // PersonalAccount perAccThree = new PersonalAccount();
+      // PersonalAccount perAccThree = new PersonalAccount();
 
 //do while loop iterates over code inside while true
       do
@@ -40,7 +49,7 @@ public class Company
          System.out.println("0 - Exit program");
          System.out.println("Please enter your choice: ");
          //input - allows user to enter their option
-          switch0 = sc.next().charAt(0);
+         switch0 = sc.next().charAt(0);
          //switch - function inside case will run depending on users inputs
          switch (switch0)
          {
@@ -50,8 +59,6 @@ public class Company
                //initialises variable
                String address;
                String name;
-
-
 
 
                //do while loop - iterates over code in a loop while true
@@ -85,10 +92,10 @@ public class Company
                         //creates new object in array
                         PersonalAccount perAccNew = new PersonalAccount(name, address, perAccNumber);
                         //inserts object into array
-                        MyPer.insert(perAccNew);
+                        MyArray.insert(perAccNew);
                         //output - displays
 
-                        System.out.println(perAccNew.toString(0));
+                        System.out.println(perAccNew.toString());
                         //breaks code
                         break;
                      case '2':
@@ -98,12 +105,12 @@ public class Company
                         //creates new object
                         BusinessAccount busAccNew = new BusinessAccount(name, address, busAccNumber);
                         //inserts object into array
-                        MyBus.insert(busAccNew);
+                        MyArray.insert(busAccNew);
                         //output - displays
-                        System.out.println(busAccNew.toString(0));
+                        System.out.println(busAccNew.toString());
                         //breaks code
                         break;
-                        //default case - displays error message when input data is incorrect
+                     //default case - displays error message when input data is incorrect
                      default:
                         System.out.println("Invalid choice please re-enter");
                   }
@@ -116,266 +123,160 @@ public class Company
 
 
             case '2':
-               //initialises variable
-               char switch2;
-               //do while loop - iterates of code inside while true
+
+
                do
-            {
-               //output - displays menu to user
-               System.out.println("1 – Record a new sale");
-               System.out.println("2 - Make a payment to the account");
-               System.out.println("3 - Display current balance");
-               System.out.println("4 - Display details of account");
-               System.out.println("5 - For business account, change discount to be applied");
-               System.out.println("0 - Exit program ");
-               System.out.println("Enter your choice: ");
-               //allows user to enter data
-               switch2 = sc.next().charAt(0);
-               //switch -  iterates case depending on users input
-               switch (switch2)
                {
-                  case '0':
-                     System.exit(0);//breaks code
-                  case '1':
-                     //initialises variable
+                  try
+                  {
+
+                     System.out.print("please enter the account number you wish to find starting with 1XXX or 2XXX\n");
 
 
-                     double saleAmount;
-                     //do while loop
-                     do
+                     int AccRefSearch = Integer.parseInt(sc.next());
+
+
+                     if (MyArray.accounts.size() > 0)
                      {
-                        //output - displays menu to user
-                        System.out.println("Is your account: ");
-                        System.out.println("1 - Personal");
-                        System.out.println("2 - Business");
-                        //initialises variable and allows user to enter data
-
-                         switch2= sc.next().charAt(0);
-                        //switch - -  iterates case depending on users input
-                        switch(switch2)
+                        MyArray.findAccountByAccRef(AccRefSearch);
+                        for (int i = 0; i < MyArray.getNoOfAccounts(); i++)
                         {
-                           case '1':
-                              System.out.println("Please enter your account number: ");
-                              int accRef = sc.nextInt();
-                              for (int i = 0; i < MyPer.getNoOfPerAccounts(); i++)//for loop iterates over text inside certain amount of times based on condition - number of accounts
-                              {
-                                 MyPer.get(i);//gets index point of account by name
-                                 if (accRef == (MyPer.getAccountRefNo(i)))//if name equals the element from my array executed following code
-                                 {
-                                    System.out.println("Please enter the sale amount: £");
-                                    saleAmount = sc.nextDouble();
-                                    MyPer.getCurrent(i).recordSale(saleAmount);
-                                 }//end if
-                                 else//else - if no account with that name exists execute the following code
-                                 {
-                                    System.out.print("There are no accounts with this name please re-enter");// output - displays message to user
-                                    break;//breaks codes
-                                 }//end else
-                              }//end for
-
-
-                           case '2':
-                              System.out.println("Please enter your name : ");
-                              name = sc.next();
-                              for (int i = 0; i < MyBus.getNoOfBusAccounts(); i++)//for loop iterates over text inside certain amount of times based on condition - number of properties
-                              {
-                                 MyBus.getName(i);//gets index point of property with particular street
-                                 if (name.equals(MyBus.getName(i)))//if street1 equals the element from my array executed following code
-                                 {
-                                    System.out.println("Please enter the sale amount: £");
-                                    saleAmount = sc.nextDouble();
-                                    MyBus.getCurrentB(i).recordSale(saleAmount);
-                                 } else//else - if no property with that street exists execute the following code
-                                 {
-                                    System.out.print("There is no account with this name, please re-enter");//display message to user
-                                    break;//breaks code
-                                 }
-
-                              }//end for
-                        }//end switch
-
-                     }while(true);
-                  case '2':
-                     do
-                     {
-                        String name2;
-                        double paymentAmount;
-                        System.out.println("Is your account: ");
-                        System.out.println("1 - Personal");
-                        System.out.println("2 - Business");
-                        char switch3 = sc.next().charAt(0);
-                        switch (switch3)
-                        {
-                           case '1':
-                              System.out.println("Please enter your name: ");
-                              name2 = sc.next();
-
-                              for (int i = 0; i < MyPer.getNoOfPerAccounts(); i++)//for loop iterates over text inside certain amount of times based on condition - number of accounts
-                              {
-                                 MyPer.getName(i);//gets index point of account by name
-                                 if (name2.equals(MyPer.getName(i)))//if name equals the element from my array executed following code
-                                 {
-                                    System.out.println("Please enter the payment amount: £");
-                                    paymentAmount = sc.nextDouble();
-                                    MyPer.getCurrent(i).payment(paymentAmount);
-                                 }//end if
-                                 else//else - if no account with that name exists execute the following code
-                                 {
-                                    System.out.print("There are no accounts with this name please re-enter");// output - displays message to user
-                                    break;//breaks codes
-                                 }//end else
-                              }//end for
-                           case '2':
-                              System.out.println("Please enter your name : ");
-                              name2 = sc.next();
-                              for (int i = 0; i < MyBus.getNoOfBusAccounts(); i++)//for loop iterates over text inside certain amount of times based on condition - number of properties
-                              {
-                                 MyBus.getName(i);//gets index point of property with particular street
-                                 if (name2.equals(MyBus.getName(i)))//if street1 equals the element from my array executed following code
-                                 {
-                                    System.out.println("Please enter the payment amount: £");
-                                    paymentAmount = sc.nextDouble();
-                                    MyBus.getCurrentB(i).payment(paymentAmount);
-                                 } else//else - if no property with that street exists execute the following code
-                                 {
-                                    System.out.print("There is no account with this name, please re-enter");//display message to user
-                                    break;//breaks code
-                                 }
-                              }//end for
-                        }//end switch
-                     }while(true);
-
-
-                  case '3':
-                     String address1;
-                     do
-                     {
-                        System.out.println("Is your account: ");
-                        System.out.println("1 - Personal");
-                        System.out.println("2 - Business");
-                        char case2 = sc.next().charAt(0);
-                        switch(case2)
-                        {
-                           case '1':
-                           System.out.println("Please enter your address: ");
-                           address1 = sc.next();
-                              ArrayList<Integer> display = MyPer.findAccountByAddress(address1);
-
-                           if (display.size() > 0)
+                           if (MyArray.getCurrent(i).getAccountRefNo(index) == AccRefSearch)
                            {
-                              for (int i = 0; i < display.size(); i++)
-                              {
-                                 MyPer.displayBalance(display.get(i));
+                              System.out.println(MyArray.getCurrent(i).toString());
+                              search = true;
+                              index = i;
+                           }
+                        }
+                     } else
+                     {
+                        System.out.print("Error, there is no account in this array\n");
+                     }
+                     break;
+                  } catch (ArrayIndexOutOfBoundsException | NumberFormatException e)
+                  {
+                     System.out.print("Error: Index is out of bounds.\nAccount does not exist");
+                  }
+                  break;
 
-                              }
-                           } else
+               } while (!search);
+               if (search)
+               {
+
+                  do
+                  {
+
+                     System.out.print("1 - Make a sale \n");
+                     System.out.print("2 - Make a payment\n");
+                     System.out.print("3 - Display balance \n");
+                     System.out.print("4 - Display details \n");
+                     System.out.print("5 - Change Discount For Business only\n");
+                     System.out.print("Press 0 to exit to main menu. \n");
+
+
+                     choice3 = Integer.parseInt(getMessage("please select your choice for this account\n"));
+
+
+                     switch (choice3)
+                     {
+
+
+                        case 1:
+                        {
+                           try
                            {
-                              System.out.println("There is no Personal account with this address");
-                              System.out.println("Please re-enter");
+                              System.out.print("**********************************\n");
 
+                              double SaleAmount = Double.parseDouble(getMessage("Please enter the amount payed to you\n"));
+
+                              MyArray.getCurrent(index).recordSale(SaleAmount);
+
+                              System.out.print("**********************************\n");
+
+                              System.out.println(MyArray.getCurrent(index).displayBalance(index));
+
+                           } catch (IndexOutOfBoundsException e)
+                           {
+                              System.out.print("Error: Please enter a valid value");
+                              break;
 
                            }
-                           case '2':
-                           System.out.println("Please enter your address: ");
-                           address1 = sc.next();
-                           ArrayList<Integer> display2 = MyBus.findAccountByAddress(address1);
-                           if (display2.size() > 0)
-                           {
-                              for (int i = 0; i < MyBus.getNoOfBusAccounts(); i++)
-                              {
-                                 MyBus.displayBalance(display2.get(i));
 
-                              }
-                           } else
+                        }
+                        break;
+
+
+                        case 2:
+                        {
+                           try
                            {
-                              System.out.println("There is no business account with this reference number");
-                              System.out.println("Please re-enter");
+
+                              double PaymentAmount = Double.parseDouble(getMessage("please enter the amount you paid.\n"));
+
+                              char[] bus = Arrays.toString(new int[]{MyArray.getCurrent(index).getAccountRefNo(index)}).toCharArray();
+                              char first = bus[1];
+                              System.out.println(first);
+
+
+                              if (first == '2')
+                              {
+                                 MyArray.getCurrent(index).getDiscount(PaymentAmount);
+                                 MyArray.getCurrent(index).payment(PaymentAmount - MyArray.getCurrent(index).getDiscount(PaymentAmount));
+                              } else if (first == '1')
+                              {
+                                 MyArray.getCurrent(index).payment(PaymentAmount);
+                              }
+
+                              System.out.println(MyArray.getCurrent(index).displayBalance(index));
+                           } catch (IndexOutOfBoundsException e)
+                           {
+                              System.out.println("Error: Please enter a valid value");
+                              break;
 
                            }
-                           default:
-                              System.out.println("Invaild choice please re-enter");
+                           break;
                         }
 
-
+                        case 3:
+                        {
+                           System.out.println("**********************");
+                           System.out.println(MyArray.getCurrent(index).displayBalance(index));
+                        }
                         break;
-                     }while(true);
-                  case '4':
 
-                     do
-                     {
-                        System.out.println("Is your account: ");
-                        System.out.println("1 - Personal");
-                        System.out.println("2 - Business");
-                        char case2 = sc.next().charAt(0);
-                        switch(case2)
+                        case 4:
                         {
-                           case '1':
-                              System.out.println("Please enter your address: ");
-                              address1 = sc.next();
-                              ArrayList<Integer> display = MyPer.findAccountByAddress(address1);
-
-                              if (display.size() > 0)
-                              {
-                                 for (int i = 0; i < display.size(); i++)
-                                 {
-                                    MyPer.toString(display.get(i));
-
-                                 }
-                              } else
-                              {
-                                 System.out.println("There is no Personal account with this address");
-                                 System.out.println("Please re-enter");
-
-
-                              }
-                           case '2':
-                              System.out.println("Please enter your address: ");
-                              address1 = sc.next();
-                              ArrayList<Integer> display2 = MyBus.findAccountByAddress(address1);
-                              if (display2.size() > 0)
-                              {
-                                 for (int i = 0; i < MyBus.getNoOfBusAccounts(); i++)
-                                 {
-                                    display2.toString();
-
-                                 }
-                              } else
-                              {
-                                 System.out.println("There is no business account with this reference number");
-                                 System.out.println("Please re-enter");
-
-                              }
-                           default:
-                              System.out.println("Invaild choice please re-enter");
+                           System.out.println("**********************");
+                           System.out.println(MyArray.getCurrent(index).toString());
                         }
-
-
                         break;
-                     }while(true);
 
-                  case '5':
-                     double discount =0.0;
-                     do
-                     {
-                        try
+                        case 5:
                         {
-                           System.out.println("What would you like the discount changed to: ");
-                            discount = sc.nextInt();
-                           MyBus.setDiscount(discount);
-                        } catch (NumberFormatException nfe)
-                        {
-                           System.out.println("Invalid please re-enter");
+                           char[] bus = Arrays.toString(new int[]{MyArray.getCurrent(index).getAccountRefNo(index)}).toCharArray();
+                           char first = bus[1];
+                           System.out.println(first);
+                           if (first == '2')
+                           {
+                              System.out.println("**********************");
+                              double NewDiscount = Double.parseDouble(getMessage("Please enter your new Discount"));
+                              System.out.println(MyArray.getCurrent(index).setDiscount(NewDiscount));
+                              System.out.println("Updated Discount is " + NewDiscount);
+                           } else if (first == '1')
+                           {
+                              System.out.println("**********************");
+                              System.out.println("Please only use with business accounts");
+                           }
                         }
-                     }while(discount != 0.0);
-                  default:
-                     System.out.println("Invalid choice please re-enter");
+                        break;
+                        default:
+                           if ((choice3 < 0) || (choice3 > 4))
+                              System.out.println("Selection invalid");
+
+                     }
+                  } while (choice3 != 0);
                }
-               break;
-            } while (switch0 != 0);
-            default:
-               System.out.println("Invalid choice please re-enter");
          }
-      }while(true);
-   }//main
-
-}//class
+      }while((switch0 != '1')||(switch0 != '2')||(switch0 != '3'));
+   }
+}
