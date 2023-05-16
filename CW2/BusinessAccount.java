@@ -7,34 +7,36 @@ public class BusinessAccount extends CustomerAccount
 {
 
    public static int busAccNumber = 2001;
-   private double discount;
-   private List<BusinessAccount> busAccList;
+   private double discount = 10.0;
+   private List<CustomerAccount> busAccList;
 
-   public BusinessAccount(){
-      super();
-      busAccNumber = accRefNo;
-      accRefNo = accRefNo + 1;
-      busAccList = new ArrayList<BusinessAccount>();
+   public BusinessAccount()
+   {
+      busAccList = new ArrayList<CustomerAccount>();
    }
 
-   public BusinessAccount(String newName, String newAddress, double newDiscount)
+
+   public BusinessAccount(String newName, String newAddress, int busAccNumber)
    {
       super(busAccNumber, newName,newAddress);
-      discount = newDiscount;
+
+
    }
-   public void setDiscount(double newDiscount)
+
+
+   public void setDiscount(double discount)
    {
-      newDiscount = discount;
+      discount = 10.0;
    }
 
    public double getDiscount()
    {
-         return discount;
+      return discount;
    }
 
    public String toString()
    {
-    return super.toString() + "the discount applied is: " + discount;
+      return super.toString() + "the discount applied is: " + discount;
    }
 
    protected int getNoOfBusAccounts() {
@@ -56,9 +58,14 @@ public class BusinessAccount extends CustomerAccount
       }//for
       return result;
    }
-   protected BusinessAccount getCurrent(int position)
+
+   protected CustomerAccount getCurrentB(int position)
    {
       return busAccList.get(position);
    }
+
+
+
+
 
 }

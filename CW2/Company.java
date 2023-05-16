@@ -10,6 +10,10 @@ import java.util.Scanner;
 public class Company
 {
    private static int accRefNo;//initialises the variable
+
+   public static int perAccNumber;
+
+   public static int busAccNumber;
    public static void main (String args[])
 
    {
@@ -21,6 +25,9 @@ public class Company
       //initialises variable option as a character
       char switch0;
 
+     // PersonalAccount perAccOne = new PersonalAccount();
+      //PersonalAccount perAccTwo = new PersonalAccount();
+     // PersonalAccount perAccThree = new PersonalAccount();
 
 //do while loop iterates over code inside while true
       do
@@ -67,32 +74,33 @@ public class Company
                   System.out.println("Please enter your address: ");
                   //allows user to enter data
                   address = sc.next();
+
                   sc.nextLine();
                   switch (switch1)
                   {
                      case '1':
-                        int i = 0;
+
                         //initialises variable
-                        int perAccNumber = 1001;
+
                         //creates new object in array
                         PersonalAccount perAccNew = new PersonalAccount(name, address, perAccNumber);
                         //inserts object into array
                         MyPer.insert(perAccNew);
                         //output - displays
 
-                        System.out.println(java.util.Arrays.toString());
+                        System.out.println(perAccNew.toString(0));
                         //breaks code
                         break;
                      case '2':
                         //initialises variable
-                        int busAccNumber = 2001;
+
 
                         //creates new object
                         BusinessAccount busAccNew = new BusinessAccount(name, address, busAccNumber);
                         //inserts object into array
                         MyBus.insert(busAccNew);
                         //output - displays
-                        System.out.println(busAccNew);
+                        System.out.println(busAccNew.toString(0));
                         //breaks code
                         break;
                         //default case - displays error message when input data is incorrect
@@ -147,12 +155,12 @@ public class Company
                         switch(switch2)
                         {
                            case '1':
-                              System.out.println("Please enter your name: ");
-                              name = sc.next();
+                              System.out.println("Please enter your account number: ");
+                              int accRef = sc.nextInt();
                               for (int i = 0; i < MyPer.getNoOfPerAccounts(); i++)//for loop iterates over text inside certain amount of times based on condition - number of accounts
                               {
                                  MyPer.getName(i);//gets index point of account by name
-                                 if (name.equals(MyPer.getName(i)))//if name equals the element from my array executed following code
+                                 if (accRef.equals(MyPer.getAccountRefNo(i)))//if name equals the element from my array executed following code
                                  {
                                     System.out.println("Please enter the sale amount: £");
                                     saleAmount = sc.nextDouble();
@@ -176,7 +184,7 @@ public class Company
                                  {
                                     System.out.println("Please enter the sale amount: £");
                                     saleAmount = sc.nextDouble();
-                                    MyBus.getCurrent(i).recordSale(saleAmount);
+                                    MyBus.getCurrentB(i).recordSale(saleAmount);
                                  } else//else - if no property with that street exists execute the following code
                                  {
                                     System.out.print("There is no account with this name, please re-enter");//display message to user
@@ -227,7 +235,7 @@ public class Company
                                  {
                                     System.out.println("Please enter the payment amount: £");
                                     paymentAmount = sc.nextDouble();
-                                    MyBus.getCurrent(i).payment(paymentAmount);
+                                    MyBus.getCurrentB(i).payment(paymentAmount);
                                  } else//else - if no property with that street exists execute the following code
                                  {
                                     System.out.print("There is no account with this name, please re-enter");//display message to user
@@ -328,7 +336,7 @@ public class Company
                               {
                                  for (int i = 0; i < MyBus.getNoOfBusAccounts(); i++)
                                  {
-                                    MyBus.toString(display2.get(i));
+                                    display2.toString();
 
                                  }
                               } else

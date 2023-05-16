@@ -10,22 +10,22 @@ public class PersonalAccount extends CustomerAccount
    //initialses variables
    //private - can only access on this package
    //public - can be accessed
-   private static String name;
-   private static String address;
-   private static double balance;
-   public static int perAccNumber = 1001;//initialises personal account number
 
-   private List<PersonalAccount> perAccList;
-   public PersonalAccount(){
-      super();
-      perAccNumber = accRefNo;
-      perAccNumber = perAccNumber + 1;
-      perAccList = new ArrayList<PersonalAccount>();
-   }//default constructor including reference to superclass
+  public static int perAccNumber = 1001;
+
+   private List<ArrayPer> perAccList;
+   public PersonalAccount()
+   {
+      perAccList = new ArrayList<CustomerAccount1>();
+   }
 
    public PersonalAccount(String newName, String newAddress, int perAccNumber )
    {
+
       super(perAccNumber, newName, newAddress);
+      perAccNumber = accRefNo;
+      perAccNumber = perAccNumber + 1;
+
    }//overloaded constructor making use of constructor from super class
 
 
@@ -52,7 +52,7 @@ public class PersonalAccount extends CustomerAccount
    }
 
 
-   protected PersonalAccount getCurrent(int position)
+   protected CustomerAccount getCurrent(int position)
    {
       return perAccList.get(position);
    }

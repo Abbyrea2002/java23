@@ -1,6 +1,8 @@
 package CW2;
 
-import java.util.List;
+import static CW2.PersonalAccount.perAccNumber;
+
+import static CW2.BusinessAccount.busAccNumber;
 
 abstract public class CustomerAccount
 {
@@ -14,6 +16,9 @@ abstract public class CustomerAccount
 
    public static int accRefNo;
 
+
+
+
    public CustomerAccount(){}//default constructor
 
 
@@ -24,7 +29,24 @@ abstract public class CustomerAccount
      name = newName;
      address = newAddress;
      balance = 00.00;
+     accRefNo = perAccNumber;
+     perAccNumber = perAccNumber + 1;
+     busAccNumber = accRefNo;
+     accRefNo = accRefNo + 1;
    }//overloaded constructor which initialises the properties of an object from the customer account
+
+      public CustomerAccount(int busAccNumber, int newAccRefNo, String newName, String newAddress)
+      {
+         accRefNo = newAccRefNo;
+         name = newName;
+         address = newAddress;
+         balance = 00.00;
+         accRefNo = busAccNumber;
+         busAccNumber = busAccNumber + 1;
+         busAccNumber = accRefNo;
+         accRefNo = accRefNo + 1;
+
+      }
 
    //setters - makes it so the variables can be set data
    //sets balance to 0.0
@@ -60,10 +82,12 @@ abstract public class CustomerAccount
       return address;
    }// get address constructor | returns variable data
 
-   protected int getAccountRefNo()
+   protected int getAccountRefNo(int index)
    {
       return accRefNo;
    }//get account reference number | returns variable data
+
+
 
 
    protected double payment(double paymentAmount)
@@ -78,7 +102,7 @@ abstract public class CustomerAccount
 
    public String toString(int index)
    {
-      return  (super.toString() + "Account number:  " + getAccountRefNo() + " Name: " + name + "  Address: " + address + " Balance: £");
+      return  ( "Account number:  " + getAccountRefNo() + " Name: " + name + "  Address: " + address + " Balance: £"+ balance);
    }// method which returns a string which will display the details of the account
 
    public void displayBalance(int index)
