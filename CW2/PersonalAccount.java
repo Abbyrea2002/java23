@@ -25,16 +25,4 @@ public class PersonalAccount extends CustomerAccount
 
    }//overloaded constructor making use of constructor from super class
 
-
-
-
-
-
-
-
-
-
-
-
-
 }

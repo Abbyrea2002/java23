@@ -12,7 +12,7 @@ abstract public class CustomerAccount
 
    private static String name;
    private static String address;
-   private static double balance;
+   public static double balance = 00.00;
 
    public static int accRefNo;
 
@@ -93,10 +93,10 @@ abstract public class CustomerAccount
 
    public static String toString(int index )
    {
-      return  ( "Account number:  " + accRefNo + " Name: " + name + "  Address: " + address + " Balance: £"+ balance);
+      return  ( "Account number:" + accRefNo + "\nName:" + name + "\nAddress:     "+ address + "\nBalance: £"+ balance);
    }// method which returns a string which will display the details of the account
 
-   public boolean displayBalance(int index)
+   public boolean displayBalance()
    {
       System.out.println("The current balance is this account is: £" + balance);
       return false;

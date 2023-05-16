@@ -35,5 +35,4 @@ public class BusinessAccount extends CustomerAccount
    {
       return super.toString() + "the discount applied is: " + discount;
    }
-
 }

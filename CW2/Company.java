@@ -95,7 +95,7 @@ public class Company
                         MyArray.insert(perAccNew);
                         //output - displays
 
-                        System.out.println(perAccNew.toString());
+                        System.out.println(perAccNew.toString(0));
                         //breaks code
                         break;
                      case '2':
@@ -107,7 +107,7 @@ public class Company
                         //inserts object into array
                         MyArray.insert(busAccNew);
                         //output - displays
-                        System.out.println(busAccNew.toString());
+                        System.out.println(busAccNew.toString(0));
                         //breaks code
                         break;
                      //default case - displays error message when input data is incorrect
@@ -143,19 +143,19 @@ public class Company
                         {
                            if (MyArray.getCurrent(i).getAccountRefNo(index) == AccRefSearch)
                            {
-                              System.out.println(MyArray.getCurrent(i).toString());
+                              System.out.println(MyArray.getCurrent(i).toString(0));
                               search = true;
                               index = i;
                            }
                         }
                      } else
                      {
-                        System.out.print("Error, there is no account in this array\n");
+                        System.out.print("Error there is no account in this array\n");
                      }
                      break;
                   } catch (ArrayIndexOutOfBoundsException | NumberFormatException e)
                   {
-                     System.out.print("Error: Index is out of bounds.\nAccount does not exist");
+                     System.out.print("Error Account does not exist");
                   }
                   break;
 
@@ -166,15 +166,15 @@ public class Company
                   do
                   {
 
-                     System.out.print("1 - Make a sale \n");
+                     System.out.print("1 - Record sale \n");
                      System.out.print("2 - Make a payment\n");
                      System.out.print("3 - Display balance \n");
                      System.out.print("4 - Display details \n");
-                     System.out.print("5 - Change Discount For Business only\n");
-                     System.out.print("Press 0 to exit to main menu. \n");
+                     System.out.print("5 - Change discount For Business only\n");
+                     System.out.print("0 - Exit to menu \n");
 
 
-                     choice3 = Integer.parseInt(getMessage("please select your choice for this account\n"));
+                     choice3 = Integer.parseInt(getMessage("please select your choice for this account:\n"));
 
 
                      switch (choice3)
@@ -185,15 +185,15 @@ public class Company
                         {
                            try
                            {
-                              System.out.print("**********************************\n");
+                             System.out.print("Please enter the amount of the sale\n");
+                             double saleAmount= sc.nextDouble();
 
-                              double SaleAmount = Double.parseDouble(getMessage("Please enter the amount payed to you\n"));
+                             // double saleAmount = Double.parseDouble(getMessage("Please enter the amount of the sale\n"));
 
-                              MyArray.getCurrent(index).recordSale(SaleAmount);
+                              MyArray.getCurrent(index).recordSale(saleAmount);
 
-                              System.out.print("**********************************\n");
 
-                              System.out.println(MyArray.getCurrent(index).displayBalance(index));
+                              System.out.println(MyArray.getCurrent(index).displayBalance());
 
                            } catch (IndexOutOfBoundsException e)
                            {
@@ -211,7 +211,7 @@ public class Company
                            try
                            {
 
-                              double PaymentAmount = Double.parseDouble(getMessage("please enter the amount you paid.\n"));
+                              double paymentAmount = Double.parseDouble(getMessage("please enter the amount you would like to pay:\n £"));
 
                               char[] bus = Arrays.toString(new int[]{MyArray.getCurrent(index).getAccountRefNo(index)}).toCharArray();
                               char first = bus[1];
@@ -220,14 +220,14 @@ public class Company
 
                               if (first == '2')
                               {
-                                 MyArray.getCurrent(index).getDiscount(PaymentAmount);
-                                 MyArray.getCurrent(index).payment(PaymentAmount - MyArray.getCurrent(index).getDiscount(PaymentAmount));
+                                 MyArray.getCurrent(index).getDiscount(paymentAmount);
+                                 MyArray.getCurrent(index).payment(paymentAmount - MyArray.getCurrent(index).getDiscount(paymentAmount));
                               } else if (first == '1')
                               {
-                                 MyArray.getCurrent(index).payment(PaymentAmount);
+                                 MyArray.getCurrent(index).payment(paymentAmount);
                               }
 
-                              System.out.println(MyArray.getCurrent(index).displayBalance(index));
+                              System.out.println(MyArray.getCurrent(index).displayBalance());
                            } catch (IndexOutOfBoundsException e)
                            {
                               System.out.println("Error: Please enter a valid value");
@@ -239,15 +239,15 @@ public class Company
 
                         case 3:
                         {
-                           System.out.println("**********************");
-                           System.out.println(MyArray.getCurrent(index).displayBalance(index));
+
+                           System.out.println(MyArray.getCurrent(index).displayBalance());
                         }
                         break;
 
                         case 4:
                         {
-                           System.out.println("**********************");
-                           System.out.println(MyArray.getCurrent(index).toString());
+
+                           System.out.println(MyArray.getCurrent(index).toString(0));
                         }
                         break;
 
@@ -258,14 +258,14 @@ public class Company
                            System.out.println(first);
                            if (first == '2')
                            {
-                              System.out.println("**********************");
-                              double NewDiscount = Double.parseDouble(getMessage("Please enter your new Discount"));
+
+                              double NewDiscount = Double.parseDouble(getMessage("Please enter the new discount"));
                               System.out.println(MyArray.getCurrent(index).setDiscount(NewDiscount));
-                              System.out.println("Updated Discount is " + NewDiscount);
+                              System.out.println("Updated discount is " + NewDiscount);
                            } else if (first == '1')
                            {
-                              System.out.println("**********************");
-                              System.out.println("Please only use with business accounts");
+
+                              System.out.println("This is not a business account please re-enter");
                            }
                         }
                         break;
