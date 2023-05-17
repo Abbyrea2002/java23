@@ -15,6 +15,7 @@ abstract public class CustomerAccount
    public static double balance = 00.00;
 
    public static int accRefNo;
+   public static int accRefNo1;
 
    public static double discount = 0.1;
 
@@ -25,16 +26,17 @@ abstract public class CustomerAccount
 
 
 
-   public CustomerAccount(int newAccRefNo, String newName, String newAddress)
+   public CustomerAccount( int newAccRefNo, String newName, String newAddress)
    {
+
       accRefNo = newAccRefNo;
      name = newName;
      address = newAddress;
      balance = 00.00;
      accRefNo = perAccNumber;
      perAccNumber = perAccNumber + 1;
-     busAccNumber = accRefNo;
-     accRefNo = accRefNo + 1;
+     busAccNumber = accRefNo1;
+     busAccNumber = busAccNumber + 1;
    }//overloaded constructor which initialises the properties of an object from the customer account
 
 

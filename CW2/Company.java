@@ -181,19 +181,20 @@ public class Company
                      //output - displays menu to user
                      System.out.println("1 - Record sale ");
                      System.out.println("2 - Make a payment");
-                     System.out.println("3 - Display balance");
+                     System.out.println("3 - Display current balance");
                      System.out.println("4 - Display details");
-                     System.out.println("5 - Change discount For Business only");
+                     System.out.println("5 - For business account, change discount amount");
                      System.out.println("0 - Exit to menu");
 
                      //prompts user to enter choice
-                     switch2 = Integer.parseInt(getMessage("please select your choice for this account:\n"));
+                     switch2 = Integer.parseInt(
+                           getMessage("please select your choice for this account:\n"));
 
                      //switch - executes code inside case depending on users choice
                      switch (switch2)
                      {
-
-
+                        case 0:
+                           System.exit(0);
                         case 1://case 1 records sale
                         {
                            try//try catch executes code inside try and if exception executes code inside catch
@@ -316,6 +317,8 @@ public class Company
                      }//end switch
                   } while (switch2 != 0);
                }//end if
+            default:
+               System.out.println("invalid please re-enter");
          }//end switch
       }while((switch0 != '1')||(switch0 != '2')||(switch0 != '3'));//do while switch0 is not equal to 1 2 or 3
    }//main
