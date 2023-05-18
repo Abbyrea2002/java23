@@ -73,22 +73,22 @@ public class Company
                   //initialises variable and allows user to enter data
                   switch1 = sc.next().charAt(0);
                   //switch - function inside case will run depending on users inputs
-                  //output - displays message to user
-                  sc.nextLine();
-                  System.out.println("Please enter your name: ");
-                  //allows user to enter data
-                  name = sc.next();
-                  sc.nextLine();
-                  System.out.println("Please enter your address: ");
-                  //allows user to enter data
-                  address = sc.next();
+
 
                   sc.nextLine();
                   switch (switch1)
                   {
                      case '1'://case 1 allows user to make and store a personal account
 
-                        //initialises variable
+                        //output - displays message to user
+
+                        System.out.println("Please enter your name: ");
+                        //allows user to enter data
+                        name = sc.next();
+                        sc.nextLine();
+                        System.out.println("Please enter your address: ");
+                        //allows user to enter data
+                        address = sc.next();
 
                         //creates new object in array
                         PersonalAccount perAccNew = new PersonalAccount(name, address, perAccNumber);
@@ -101,6 +101,15 @@ public class Company
                         break;
                      case '2'://case 2 allows user to make and store a business account
 
+                        //output - displays message to user
+                        sc.nextLine();
+                        System.out.println("Please enter your name: ");
+                        //allows user to enter data
+                        name = sc.next();
+                        sc.nextLine();
+                        System.out.println("Please enter your address: ");
+                        //allows user to enter data
+                        address = sc.next();
 
                         //creates new object
                         BusinessAccount busAccNew = new BusinessAccount(name, address, busAccNumber);
@@ -188,15 +197,14 @@ public class Company
                      System.out.println("0 - Exit to menu");
 
                      //prompts user to enter choice
-                     switch2 = Integer.parseInt(
-                           getMessage("please select your choice for this account:\n"));
+                     switch2 = sc.next().charAt(0);
 
                      //switch - executes code inside case depending on users choice
                      switch (switch2)
                      {
-                        case 0:
+                        case '0':
                            System.exit(0);
-                        case 1://case 1 records sale
+                        case '1'://case 1 records sale
                         {
                            try//try catch executes code inside try and if exception executes code inside catch
                            {
@@ -226,7 +234,7 @@ public class Company
                         break;
 
 
-                        case 2://case 2 allows the user to make a payment to account and applies a discount if the user has a business account
+                        case '2'://case 2 allows the user to make a payment to account and applies a discount if the user has a business account
                         {
                            try//try catch executes code inside try and if exception executes code inside catch
                            {
@@ -268,7 +276,7 @@ public class Company
                            break;
                         }//end of case 2
 
-                        case 3://case 3 displays balance
+                        case '3'://case 3 displays balance
                         {
                            //output - uses index position of account to find and display balance
                            System.out.println(MyArray.getCurrent(index).displayBalance());
@@ -276,7 +284,7 @@ public class Company
                         //break
                         break;
 
-                        case 4://case 4 displays details of account
+                        case '4'://case 4 displays details of account
                         {
                            //output - uses index position to display details of account also useing to string method
                            System.out.println(MyArray.getCurrent(index).toString(0));
@@ -284,7 +292,7 @@ public class Company
                         //breaks code
                         break;
 
-                        case 5://case 5 allows user to change discount
+                        case '5'://case 5 allows user to change discount
                         {
                            //initialises and converts account reference number to char array
                            char[] bus = Arrays.toString(new int[]{MyArray.getCurrent(index).getAccountRefNo(index)}).toCharArray();
