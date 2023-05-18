@@ -12,10 +12,10 @@ abstract public class CustomerAccount
 
    private static String name;
    private static String address;
-   public static double balance = 00.00;
+   public static double balance = 0;
 
    public static int accRefNo;
-   public static int accRefNo1;
+
 
    public static double discount = 0.1;
 
@@ -28,15 +28,15 @@ abstract public class CustomerAccount
 
    public CustomerAccount( int newAccRefNo, String newName, String newAddress)
    {
-
       accRefNo = newAccRefNo;
      name = newName;
      address = newAddress;
-     balance = 00.00;
-     accRefNo = perAccNumber;
+      balance = 0;
+      perAccNumber = accRefNo;
      perAccNumber = perAccNumber + 1;
-     busAccNumber = accRefNo1;
+     busAccNumber = accRefNo;
      busAccNumber = busAccNumber + 1;
+
    }//overloaded constructor which initialises the properties of an object from the customer account
 
 
@@ -45,7 +45,7 @@ abstract public class CustomerAccount
    //sets balance to 0.0
    protected void setBalance()
 {
-   balance = 00.00;
+   balance = 0;
 }//void - empty parameter
    //sets name variable
    protected void setName(String newName)
@@ -85,17 +85,19 @@ abstract public class CustomerAccount
 
    protected double payment(double paymentAmount)
    {
-    return balance - paymentAmount;
+    balance = balance - paymentAmount;
+    return balance;
    }//method which subtracts the balance from the payment amount
 
    protected double recordSale(double saleAmount)
    {
-      return balance + saleAmount;
+      balance = saleAmount + balance;
+      return balance;
    }// method which adds the sale amount to the current balance
 
    public static String toString(int index )
    {
-      return  ( "Account number:" + accRefNo + "\nName:" + name + "\nAddress:     "+ address + "\nBalance: £"+ balance);
+      return  ( "Account number:" + accRefNo + "\nName:" + name + "\nAddress:"+ address + "\nBalance: £"+ balance);
    }// method which returns a string which will display the details of the account
 
    public boolean displayBalance()

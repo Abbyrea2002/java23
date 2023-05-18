@@ -3,6 +3,8 @@ package CW2;
 import java.util.ArrayList;
 import java.util.List;
 
+import static CW2.BusinessAccount.busAccNumber;
+
 public class BusinessAccount extends CustomerAccount
 {
 
@@ -13,11 +15,12 @@ public class BusinessAccount extends CustomerAccount
 
 
 
-   public BusinessAccount(String newName, String newAddress, int busAccNumber)
+   public BusinessAccount(String newName, String newAddress, int NewAccRef)
    {
       super(busAccNumber, newName,newAddress);
-
-
+      busAccNumber = accRefNo;
+      busAccNumber = busAccNumber + 1;
+      balance = 0;
    }
 
 

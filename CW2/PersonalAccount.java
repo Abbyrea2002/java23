@@ -16,12 +16,13 @@ public class PersonalAccount extends CustomerAccount
 
 
 
-   public PersonalAccount(String newName, String newAddress, int perAccNumber )
+   public PersonalAccount(String newName, String newAddress, int newAccRef )
    {
 
       super(perAccNumber, newName, newAddress);
       perAccNumber = accRefNo;
       perAccNumber = perAccNumber + 1;
+      balance =0;
 
    }//overloaded constructor making use of constructor from super class
 
