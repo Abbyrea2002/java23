@@ -1,4 +1,6 @@
 package CW2;
+//created by abby rea on 6/5/2023
+//a program to allows the creation of accounts which can be used to by and sell products
 
 import java.util.Scanner;
 import java.util.Arrays;

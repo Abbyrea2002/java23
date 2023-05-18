@@ -1,5 +1,6 @@
 package CW2;
-
+//created by abby rea on the 16/5/2023
+//a program to initialise and manipulate an array
 import java.util.ArrayList;
 import java.util.List;
 

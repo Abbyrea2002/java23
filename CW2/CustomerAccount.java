@@ -24,7 +24,7 @@ abstract public class CustomerAccount
 
 
 
-public CustomerAccount(){}//default
+
 
    public CustomerAccount( int newAccRefNo, String newName, String newAddress)
    {

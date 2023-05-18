@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static CW2.BusinessAccount.busAccNumber;
-
+//created by abby on the 6/5/2023
+//a sub class to override a constructor from it super class
 public class BusinessAccount extends CustomerAccount
 {
 

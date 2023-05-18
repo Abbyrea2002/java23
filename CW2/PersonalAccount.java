@@ -1,5 +1,6 @@
 package CW2;
-
+//created by abby on the 6/5/2023
+//a sub class to override a constructor from it super class
 
 
 import java.util.ArrayList;
