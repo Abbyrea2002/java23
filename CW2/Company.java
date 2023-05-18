@@ -62,6 +62,7 @@ public class Company
 
 
                //do while loop - iterates over code in a loop while true
+               char switch1;
                do
                {
                   //output - displays menu to user
@@ -70,7 +71,7 @@ public class Company
                   System.out.println("2 - Business Account ");
                   System.out.println("Enter your choice: ");
                   //initialises variable and allows user to enter data
-                  char switch1 = sc.next().charAt(0);
+                  switch1 = sc.next().charAt(0);
                   //switch - function inside case will run depending on users inputs
                   //output - displays message to user
                   sc.nextLine();
@@ -101,7 +102,6 @@ public class Company
                      case '2'://case 2 allows user to make and store a business account
 
 
-
                         //creates new object
                         BusinessAccount busAccNew = new BusinessAccount(name, address, busAccNumber);
                         //inserts object into array
@@ -117,7 +117,7 @@ public class Company
                   //breaks code
                   break;
                   //end of while loop
-               } while (true);
+               } while (switch1 != '1'|| switch1 != '2');
                //breaks code
                break;
 
@@ -161,7 +161,8 @@ public class Company
                      //breaks code
                      break;
                   }//end try
-                  catch (ArrayIndexOutOfBoundsException | NumberFormatException e)//catch - executes code inside if index is out of bounds or there is a number exception
+                  catch (ArrayIndexOutOfBoundsException |
+                         NumberFormatException e)//catch - executes code inside if index is out of bounds or there is a number exception
                   {
                      //output - displays error message to user
                      System.out.print("Error Account does not exist");
@@ -247,7 +248,7 @@ public class Company
                                  //uses index position to find account and payment method to execute the method paymnet while applying discount
                                  MyArray.getCurrent(index).payment(paymentAmount - MyArray.getCurrent(index).getDiscount(paymentAmount));
                               } //end if
-                               else if (first == '1')//else if first equals 1
+                              else if (first == '1')//else if first equals 1
                               {
                                  //uses index position to locate account to use in payment method - no discount as this is for personal accounts
                                  MyArray.getCurrent(index).payment(paymentAmount);
